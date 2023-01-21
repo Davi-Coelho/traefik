@@ -40,6 +40,7 @@ pipeline {
                         sh "sed 's/USER:PASSWORD/${USER_PASSWORD}/' traefik_dynamic.sample.toml > traefik_dynamic.toml"
                         sh "sed -i 's/your_domain/${DOMAIN}/' traefik_dynamic.toml"
                         sh "cp ./acme.sample.json ./acme.json"
+                        sh "chmod 600 acme.json"
                     }
                 }
             }
