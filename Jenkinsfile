@@ -26,7 +26,7 @@ pipeline {
 
                     echo "acme: ${ACME_FILE}"
 
-                    if (ACME_FILE != 0) {
+                    if (ACME_FILE == 0) {
                         USER_PASSWORD = sh (
                             script: 'htpasswd -nb $USER $PASSWORD',
                             returnStdout: true
