@@ -24,11 +24,14 @@ pipeline {
                         returnStatus: true
                     )
 
+                    echo "acme: ${ACME_FILE}"
+
                     if (ACME_FILE != 0) {
                         USER_PASSWORD = sh (
                             script: 'htpasswd -nb $USER $PASSWORD',
                             returnStdout: true
                         )
+                        echo "user_password: ${USER_PASSWORD}"
                         sh "sed 's/your_email/${EMAIL}/' traefik.sample.toml > traefik.toml"
                         sh "sed 's/USER:PASSWORD/${USER_PASSWORD}/' traefik_dynamic.sample.toml > traefik_dynamic.toml"
                         sh "sed -i 's/your_domain/${DOMAIN}' traefik_dynamic.toml"
