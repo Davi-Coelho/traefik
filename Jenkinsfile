@@ -28,8 +28,8 @@ pipeline {
 
                     if (ACME_FILE == 0) {
                         withCredentials([usernamePassword(credentialsId: 'traefik_user',
-                                                          passwordVariable: 'USERNAME',
-                                                          usernameVariable: 'PASSWORD')]) {
+                                                          passwordVariable: 'PASSWORD',
+                                                          usernameVariable: 'USERNAME')]) {
                             USER_PASSWORD = sh (
                                 script: 'htpasswd -nb $USERNAME $PASSWORD',
                                 returnStdout: true
