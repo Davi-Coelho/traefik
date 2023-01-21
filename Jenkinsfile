@@ -33,7 +33,7 @@ pipeline {
                             USER_PASSWORD = sh (
                                 script: 'htpasswd -nb $USERNAME $PASSWORD',
                                 returnStdout: true
-                            )
+                            ).trim()
                         }
                         echo "user_password: ${USER_PASSWORD}"
                         sh "sed 's/your_email/${EMAIL}/' traefik.sample.toml > traefik.toml"
