@@ -17,4 +17,6 @@ services:
 
 networks:
   web:
+    name: web
     driver: bridge
+    external: true
