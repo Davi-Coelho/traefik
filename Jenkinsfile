@@ -47,15 +47,5 @@ pipeline {
                 sh "docker compose up -d --build"
             }
         }
-        stage("Cleaning workspace on ending") {
-            steps {
-                cleanWs(cleanWhenNotBuilt: false,
-                        deleteDirs: true,
-                        disableDeferredWipeout: true,
-                        notFailBuild: true,
-                        patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                                [pattern: '.propsfile', type: 'EXCLUDE']])
-            }
-        }
     }
 }
