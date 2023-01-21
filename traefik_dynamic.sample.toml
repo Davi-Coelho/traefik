@@ -1,6 +1,6 @@
 [http.middlewares.simpleAuth.basicAuth]
   users = [
-    "admin:$apr1$ruca84Hq$mbjdMZBAG.KWn7vfN/SNK/"
+    "USER:PASSWORD"
   ]
 
 [http.routers.api]
